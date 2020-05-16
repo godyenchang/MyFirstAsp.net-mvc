@@ -1,0 +1,29 @@
+﻿@model asp.net_mvcGRUD.Models.tEmployee
+@{
+    ViewBag.Title = "員工編輯";
+}
+
+<h2>員工編輯</h2>
+<form action="@Url.Action("Edit")" method="post">
+    <input type="text" name="fId" id="fId" value="@Model.fId" />
+
+
+    <div class="form-group">
+        <label for="fName">員工姓名</label>
+        <input type="text" name="fName" id="fName" class="form-control" required value="@Model.fName" />
+    </div>
+    <div class="form-group">
+        <label for="fPhone">連絡電話</label>
+        <input type="text" name="fPhone" id="fPhone" class="form-control"
+               pattern="[0-9]{10}" title="請填入行動電話 " required value="@Model.fPhone"/>
+    </div>
+    <div class="form-group">
+        <label for="fSalary">員工薪資</label>
+        <input type="number" name="fSalary" id="fSalary" class="form-control"
+               min="22000" max="60000" step="1000" required value="@Model.fSalary"/>
+    </div>
+    <input type="submit" value="儲存" class="btn btn-default" />
+</form>
+
+
+

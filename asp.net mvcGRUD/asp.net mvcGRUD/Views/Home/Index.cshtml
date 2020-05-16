@@ -1,0 +1,32 @@
+﻿@model IEnumerable<asp.net_mvcGRUD .Models.tEmployee>
+@{
+    ViewBag.Title = "員工列表";
+}
+
+<h2>員工列表</h2>
+<table class="table">
+    <tr>
+        <th>員工編號</th>
+        <th>員工姓名</th>
+        <th>聯絡電話</th>
+        <th>員工薪資</th>
+    </tr>
+@foreach (var item in Model)
+{
+<tr>
+    <td>@item.fId</td>
+    <td>@item.fName</td>
+    <td>@item.fPhone</td>
+    <td>@item.fSalary</td>
+    <td>
+        <a href="@Url.Action("Create")?fId=@item.fId"
+           class="btn btn-info">新增</a>
+        <a href="@Url.Action("Edit")?fId=@item.fId"
+           class="btn btn-info">編輯</a>
+        <a href="@Url.Action("Delete")?fId=@item.fId"
+           class="btn btn-danger"
+           onclick="return confirm('確定要刪除嗎?');">刪除</a>
+    </td>    
+</tr>
+}
+    </table>
